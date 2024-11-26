@@ -1177,16 +1177,18 @@ App.prototype.doSearch14 = App.prototype.doSearchall;
 App.prototype.onSearchClick1 = function (searchTerm) {
     this.doSearch1(searchTerm)
         .then(results => {
-            const container = this.qs(".setting-content1");
+            const container = this.qs(".setting-content2");
             container.innerHTML = ""; // Очистка контейнера
 
-            results.slice(0, 4).forEach(result => {
+            results.slice(0, 2).forEach(result => {
                 let resultEl = document.createElement("div");
                 resultEl.className = "search-result";
-                let excerpt = result.excerpt.trim().replace(/^(\.\.\.|\s)+/, '');
+                
+                let excerpt = result.excerpt.trim();
+                   let additionalText = "Собственно говоря, бред – это ничто иное"; 
 
                 resultEl.innerHTML = `
-                    <a href="${result.cfi}" class="result-link">${excerpt}</a>
+                    <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
                 `;
                 resultEl.querySelector(".result-link").addEventListener("click", this.onResultClick.bind(this, result.cfi));
                 container.appendChild(resultEl);
@@ -1209,7 +1211,7 @@ App.prototype.onSearchClick2 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = ""; 
+                   let additionalText = "В XIII веке Роджер Бэкон (род. около 1214 - 1292) открыл войну за свободу мысли. "; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
