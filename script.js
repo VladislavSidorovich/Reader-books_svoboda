@@ -1211,7 +1211,7 @@ App.prototype.onSearchClick2 = function (searchTerm) {
                 resultEl.className = "search-result";
                 
                 let excerpt = result.excerpt.trim();
-                   let additionalText = "В XIII веке Роджер Бэкон (род. около 1214 - 1292) открыл войну за свободу мысли. "; 
+                   let additionalText = " XIII веке Роджер Бэкон (род. около 1214 - 1292) открыл войну за свободу мысли. "; 
 
                 resultEl.innerHTML = `
                     <a href="${result.cfi}" class="result-link">${excerpt}${additionalText}</a>
